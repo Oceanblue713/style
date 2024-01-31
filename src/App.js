@@ -4,13 +4,17 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 
 function App() {
-  const BlueButton = styled(Button)({
-    backgroundColor: "skyblue",
+  const BlueButton = styled(Button)(({ theme }) => ({
+    backgroundColor: theme.palette.otherColor.main,
     color: "#888",
     margin: 5,
     "&:hover": { backgroundColor: "lightblue" },
-    "&:disabled": { backgroundColor: "gray", color: "white" },
-  });
+    "&:disabled": {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.secondary,
+    },
+  }));
+
   return (
     <div>
       <Button startIcon={<AddIcon />} variant="text">
@@ -24,7 +28,7 @@ function App() {
       >
         Contained
       </Button>
-      <Button variant="outlined" disabled>
+      <Button variant="outlined" disabled color="otherColor">
         Outlined
       </Button>
 
